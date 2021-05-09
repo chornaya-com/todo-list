@@ -1,5 +1,5 @@
 # TODO App
-   
+
 We want to build a TODO web app.
 
 It will allow the users to keep track and organize their tasks.
@@ -22,13 +22,15 @@ You'll notice that there's almost no styling beying done in the app. If you have
 
 ## Starting the application
 
-- Backend: (In the backend folder)
+-   Backend: (In the backend folder)
+
 ```shell
 npm install
 npm start # Start the server in the 9091 port
 ```
 
-- Frontend: (In the root folder)
+-   Frontend: (In the root folder)
+
 ```shell
 npm install
 npm start # Starts the app in http://localhost:3000
@@ -38,13 +40,13 @@ npm start # Starts the app in http://localhost:3000
 
 You can find it in the `/backend` directory. It's built in Express and stores the TODO items in memory.
 
-* GET /api/todo
+-   GET /api/todo
 
-![get todo picture](docs/get_todo_endpoint.png "Get TODO")
+![get todo picture](docs/get_todo_endpoint.png 'Get TODO')
 
-* POST /api/todo
+-   POST /api/todo
 
-![post todo picture](docs/post_todo_endpoint.png "POST TODO")
+![post todo picture](docs/post_todo_endpoint.png 'POST TODO')
 
 ## Frontend
 
@@ -52,5 +54,4 @@ You can find it in the `src` folder. It has been build with React and Redux. The
 
 You can assume the backend is running under `http://localhost:9091/api/todo`
 
-
-![get todo FE](docs/get_todo_frontend.png "GET todo frontend")
+![get todo FE](docs/get_todo_frontend.png 'GET todo frontend')
