@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchTodos} from '../../redux/thunks';
+import {fetchTodos} from '../../redux/todos/thunks';
 import {TodoList} from './TodoList';
 
 const mapStateToProps = ({data = {}, isLoadingData = false}) => ({

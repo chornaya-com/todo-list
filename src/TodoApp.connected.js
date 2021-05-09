@@ -1,4 +1,4 @@
-import {addTodoItem} from './redux/thunks';
+import {addTodoItem} from './redux/todos/thunks';
 import {connect} from 'react-redux';
 import {TodoApp} from './TodoApp';
 

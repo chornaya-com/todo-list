@@ -1,4 +1,4 @@
-import {SET_TODOS, ADD_NEW_TODO, SET_ERROR} from '../actions';
+import {SET_TODOS, ADD_NEW_TODO, SET_ERROR} from './actions';
 
 const initialState = {
     data: {
