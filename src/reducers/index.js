@@ -1,6 +1,12 @@
 import {FETCH_TODOS} from '../actions/types';
 
-export default function (state = {}, action) {
+const initialState = {
+    data: {
+        todos: [],
+    },
+};
+
+export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_TODOS:
             return {data: action.payload};
