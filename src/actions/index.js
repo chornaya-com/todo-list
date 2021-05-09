@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {FETCH_TODOS} from './types';
+import {ADD_NEW_TODO, SET_TODOS} from './types';
 
 export function fetchTodos() {
     return function (dispatch) {
@@ -10,17 +10,10 @@ export function fetchTodos() {
 }
 
 export function addTodoItem(todoItem) {
-    return function (dispatch, getState) {
-        const state = getState();
-        const currentTodosData = state.data;
-        const nextTodoItem = {task: todoItem};
-        const nextTodos = {
-            todos: [...currentTodosData.todos, nextTodoItem],
-        };
+    return function (dispatch) {
+        dispatch(addNewTodo(todoItem));
 
-        dispatch(setTodos(nextTodos));
-
-        return axios.post('http://localhost:9091/api/todo', nextTodoItem).catch((error) => {
+        return axios.post('http://localhost:9091/api/todo', {task: todoItem}).catch((error) => {
             console.error(error);
         });
     };
@@ -28,7 +21,14 @@ export function addTodoItem(todoItem) {
 
 function setTodos(data) {
     return {
-        type: FETCH_TODOS,
+        type: SET_TODOS,
         payload: data,
+    };
+}
+
+function addNewTodo(todoItem) {
+    return {
+        type: ADD_NEW_TODO,
+        payload: {task: todoItem},
     };
 }

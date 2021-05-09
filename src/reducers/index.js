@@ -1,4 +1,4 @@
-import {FETCH_TODOS} from '../actions/types';
+import {SET_TODOS, ADD_NEW_TODO} from '../actions/types';
 
 const initialState = {
     data: {
@@ -8,8 +8,15 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case FETCH_TODOS:
+        case SET_TODOS:
             return {data: action.payload};
+        case ADD_NEW_TODO: {
+            return {
+                data: {
+                    todos: [...state.data.todos, action.payload],
+                },
+            };
+        }
         default:
             return state;
     }

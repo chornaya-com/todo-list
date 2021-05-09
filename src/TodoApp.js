@@ -14,6 +14,9 @@ function TodoApp(props) {
 
     const onSubmit = (event) => {
         event.preventDefault();
+        if (todoItem === '') {
+            return;
+        }
         addTodoItem(todoItem);
         setTodoItem('');
     };
@@ -34,6 +37,7 @@ function TodoApp(props) {
         </div>
     );
 }
+
 const dispatchProps = {
     addTodoItem,
 };
