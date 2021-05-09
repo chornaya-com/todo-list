@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ADD_NEW_TODO, SET_TODOS, SET_ERROR} from './types';
+import {setTodos, addNewTodo, setError} from './actions';
 
 export function fetchTodos() {
     return function (dispatch) {
@@ -24,26 +24,5 @@ export function addTodoItem(todoItem) {
 
             dispatch(setTodos(currentTodosData));
         });
-    };
-}
-
-function setTodos(data) {
-    return {
-        type: SET_TODOS,
-        payload: data,
-    };
-}
-
-function addNewTodo(todoItem) {
-    return {
-        type: ADD_NEW_TODO,
-        payload: {task: todoItem},
-    };
-}
-
-function setError(errorMessage) {
-    return {
-        type: SET_ERROR,
-        payload: errorMessage,
     };
 }

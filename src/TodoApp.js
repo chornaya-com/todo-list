@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoList from './component/TodoList';
+import TodoList from './components/TodoList/TodoList';
 import './styles.css';
-import {addTodoItem} from './actions';
+import {addTodoItem} from './redux/thunks';
 import {connect} from 'react-redux';
 
 function TodoApp(props) {
