@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import Todo from './Todo';
-import {fetchTodos} from '../actions';
-import {connect} from 'react-redux';
+import Todo from '../Todo/Todo';
 
-class TodoList extends Component {
+export class TodoList extends Component {
     state = {};
 
     componentDidMount() {
@@ -11,7 +9,8 @@ class TodoList extends Component {
     }
 
     render() {
-        const {todos} = this.props.data;
+        const {todos} = this.props;
+
         return (
             <ul className="todo-list">
                 {todos && todos.length
@@ -23,11 +22,3 @@ class TodoList extends Component {
         );
     }
 }
-
-const mapStateToProps = ({data = {}, isLoadingData = false}) => ({
-    data,
-    isLoadingData,
-});
-export default connect(mapStateToProps, {
-    fetchTodos,
-})(TodoList);

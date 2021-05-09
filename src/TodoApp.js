@@ -1,11 +1,9 @@
 import React from 'react';
-import TodoList from './component/TodoList';
 import './styles.css';
-import {addTodoItem} from './actions';
-import {connect} from 'react-redux';
+import {TodoListConnected} from './components/TodoList/TodoList.connected';
 
-function TodoApp(props) {
-    const {addTodoItem} = props;
+export function TodoApp(props) {
+    const {addTodoItem, error} = props;
     const [todoItem, setTodoItem] = React.useState('');
 
     const onChange = (event) => {
@@ -14,6 +12,9 @@ function TodoApp(props) {
 
     const onSubmit = (event) => {
         event.preventDefault();
+        if (todoItem === '') {
+            return;
+        }
         addTodoItem(todoItem);
         setTodoItem('');
     };
@@ -21,6 +22,7 @@ function TodoApp(props) {
     return (
         <div className="todo-app">
             <h1>Todo List</h1>
+            <div>{error}</div>
             <form onSubmit={onSubmit}>
                 <input
                     type="text"
@@ -30,12 +32,7 @@ function TodoApp(props) {
                 />
                 <button type={'submit'}>Add</button>
             </form>
-            <TodoList />
+            <TodoListConnected />
         </div>
     );
 }
-const dispatchProps = {
-    addTodoItem,
-};
-
-export default connect(null, dispatchProps)(TodoApp);
