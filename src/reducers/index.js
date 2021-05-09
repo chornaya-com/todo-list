@@ -1,20 +1,28 @@
-import {SET_TODOS, ADD_NEW_TODO} from '../actions/types';
+import {SET_TODOS, ADD_NEW_TODO, SET_ERROR} from '../actions/types';
 
 const initialState = {
     data: {
         todos: [],
     },
+    errorMessage: '',
 };
 
 export default function (state = initialState, action) {
     switch (action.type) {
         case SET_TODOS:
-            return {data: action.payload};
+            return {...state, data: action.payload};
         case ADD_NEW_TODO: {
             return {
+                ...state,
                 data: {
                     todos: [...state.data.todos, action.payload],
                 },
+            };
+        }
+        case SET_ERROR: {
+            return {
+                ...state,
+                errorMessage: action.payload,
             };
         }
         default:

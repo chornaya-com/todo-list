@@ -5,7 +5,7 @@ import {addTodoItem} from './actions';
 import {connect} from 'react-redux';
 
 function TodoApp(props) {
-    const {addTodoItem} = props;
+    const {addTodoItem, error} = props;
     const [todoItem, setTodoItem] = React.useState('');
 
     const onChange = (event) => {
@@ -24,6 +24,7 @@ function TodoApp(props) {
     return (
         <div className="todo-app">
             <h1>Todo List</h1>
+            <div>{error}</div>
             <form onSubmit={onSubmit}>
                 <input
                     type="text"
@@ -38,8 +39,12 @@ function TodoApp(props) {
     );
 }
 
+const mapStateToProps = (state) => {
+    return {error: state.errorMessage};
+};
+
 const dispatchProps = {
     addTodoItem,
 };
 
-export default connect(null, dispatchProps)(TodoApp);
+export default connect(mapStateToProps, dispatchProps)(TodoApp);
