@@ -6,7 +6,7 @@ import {selectTodos} from '../../selectors/selectors';
 const mapStateToProps = (state) => {
     return {
         todos: selectTodos(state),
-    }
+    };
 };
 
 export const TodoListConnected = connect(mapStateToProps, {

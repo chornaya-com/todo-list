@@ -1,0 +1,16 @@
+.todoListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todoList {
+    max-width: 700px;
+    padding: 0 30px;
+}
+
+.noTodosMessage {
+    font-size: 18px;
+    margin-top: 20px;
+}
+

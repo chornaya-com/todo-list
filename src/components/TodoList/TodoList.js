@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Todo from '../Todo/Todo';
+import {Todo} from '../Todo/Todo';
+import * as cn from './TodoList.module.css';
 
 export class TodoList extends Component {
     state = {};
@@ -12,13 +13,17 @@ export class TodoList extends Component {
         const {todos} = this.props;
 
         return (
-            <ul className="todo-list">
-                {todos && todos.length
-                    ? todos.map((todo, index) => {
-                          return <Todo key={`todo-${index}`} todo={todo.task} />;
-                      })
-                    : 'No todos, yay!'}
-            </ul>
+            <div className={cn.todoListContainer}>
+                <ul className={cn.todoList}>
+                    {todos && todos.length ? (
+                        todos.map((todo, index) => {
+                            return <Todo key={`todo-${index}`} todo={todo.task} />;
+                        })
+                    ) : (
+                        <div className={cn.noTodosMessage}>No todos, yay!</div>
+                    )}
+                </ul>
+            </div>
         );
     }
 }

@@ -1,11 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import * as cn from './Todo.module.css';
 
-const Todo = ({todo}) => (
-    <li className="todo-item">
-        <span className="todo-item__text">{todo}</span>
-    </li>
-);
-
-// export default Todo;
-export default connect(null)(Todo);
+export const Todo = ({todo}) => <li className={cn.todoItem}>{todo}</li>;
