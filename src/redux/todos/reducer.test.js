@@ -1,4 +1,4 @@
-import todosReducer, {initialState} from './reducer';
+import {todosReducer, initialState} from './reducer';
 import {setError, setTodos} from './actions';
 
 describe('test todosReducer', () => {

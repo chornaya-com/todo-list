@@ -9,7 +9,8 @@ export class TodoList extends Component {
     }
 
     render() {
-        const {todos} = this.props.data;
+        const {todos} = this.props;
+
         return (
             <ul className="todo-list">
                 {todos && todos.length

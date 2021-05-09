@@ -7,7 +7,7 @@ const initialState = {
     errorMessage: '',
 };
 
-export default function (state = initialState, action) {
+export function todosReducer (state = initialState, action) {
     switch (action.type) {
         case SET_TODOS:
             return {...state, data: action.payload};

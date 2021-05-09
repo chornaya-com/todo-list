@@ -12,7 +12,7 @@ export function fetchTodos() {
 export function addTodoItem(todoItem) {
     return function (dispatch, getState) {
         const state = getState();
-        const currentTodosData = state.data;
+        const currentTodosData = state.todosState.data;
 
         dispatch(addNewTodo(todoItem));
 
