@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import Todo from '../Todo/Todo';
-import {fetchTodos} from '../../redux/thunks';
-import {connect} from 'react-redux';
 
-class TodoList extends Component {
+export class TodoList extends Component {
     state = {};
 
     componentDidMount() {
@@ -23,11 +21,3 @@ class TodoList extends Component {
         );
     }
 }
-
-const mapStateToProps = ({data = {}, isLoadingData = false}) => ({
-    data,
-    isLoadingData,
-});
-export default connect(mapStateToProps, {
-    fetchTodos,
-})(TodoList);

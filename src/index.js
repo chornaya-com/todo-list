@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import {Provider} from 'react-redux';
 import store from './redux/store';
-
-import TodoApp from './TodoApp';
+import {TodoAppConnected} from './TodoApp.connected';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
     <Provider store={store}>
-        <TodoApp />
+        <TodoAppConnected />
     </Provider>,
     rootElement,
 );

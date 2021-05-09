@@ -1,10 +1,8 @@
 import React from 'react';
-import TodoList from './components/TodoList/TodoList';
 import './styles.css';
-import {addTodoItem} from './redux/thunks';
-import {connect} from 'react-redux';
+import {TodoListConnected} from './components/TodoList/TodoList.connected';
 
-function TodoApp(props) {
+export function TodoApp(props) {
     const {addTodoItem, error} = props;
     const [todoItem, setTodoItem] = React.useState('');
 
@@ -34,17 +32,7 @@ function TodoApp(props) {
                 />
                 <button type={'submit'}>Add</button>
             </form>
-            <TodoList />
+            <TodoListConnected />
         </div>
     );
 }
-
-const mapStateToProps = (state) => {
-    return {error: state.errorMessage};
-};
-
-const dispatchProps = {
-    addTodoItem,
-};
-
-export default connect(mapStateToProps, dispatchProps)(TodoApp);
